@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Weatherly — Your little weather corner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Weatherly home">
+        <span class="brand-mark">☼</span>
+        <span>weatherly</span>
+      </a>
+      <div class="topbar-note">A little forecast for your day</div>
+      <div class="unit-switch" aria-label="Temperature unit">
+        <button class="unit-button active" id="celsius-btn" type="button">°C</button>
+        <button class="unit-button" id="fahrenheit-btn" type="button">°F</button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">YOUR DAILY WEATHER NOTE</p>
+      <h1>Somewhere under<br><em>the same sky.</em></h1>
+      <p class="intro-copy">Find the weather, wherever the day takes you.</p>
+    </section>
+
+    <form class="search-form" id="search-form">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <label class="sr-only" for="location-input">Enter a city or location</label>
+      <input id="location-input" name="location" type="search" placeholder="Try Montreal, London, Tokyo..." autocomplete="off" required>
+      <button type="submit" id="search-button">Find weather <span aria-hidden="true">→</span></button>
+    </form>
+
+    <p class="status-message" id="status-message" role="status">Start by searching for a city.</p>
+
+    <section class="weather-panel hidden" id="weather-panel" aria-live="polite">
+      <div class="weather-heading">
+        <div>
+          <p class="eyebrow">RIGHT NOW IN</p>
+          <h2 id="place-name">—</h2>
+          <p class="date-line" id="date-line">—</p>
+        </div>
+        <div class="weather-symbol" id="weather-symbol" aria-hidden="true">☀️</div>
+      </div>
+
+      <div class="current-weather">
+        <div class="temperature"><span id="temperature">—</span><sup id="temperature-unit">°C</sup></div>
+        <div class="condition">
+          <p id="conditions">—</p>
+          <span id="feels-like">Feels like —</span>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <article class="detail-card">
+          <span class="detail-icon">💧</span>
+          <span class="detail-label">Humidity</span>
+          <strong id="humidity">—</strong>
+        </article>
+        <article class="detail-card">
+          <span class="detail-icon">🌬️</span>
+          <span class="detail-label">Wind speed</span>
+          <strong id="wind-speed">—</strong>
+        </article>
+        <article class="detail-card">
+          <span class="detail-icon">☀️</span>
+          <span class="detail-label">UV index</span>
+          <strong id="uv-index">—</strong>
+        </article>
+        <article class="detail-card">
+          <span class="detail-icon">🌡️</span>
+          <span class="detail-label">Pressure</span>
+          <strong id="pressure">—</strong>
+        </article>
+      </div>
+
+      <div class="forecast-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A LITTLE LOOK AHEAD</p>
+            <h3>Next few days</h3>
+          </div>
+          <span class="forecast-caption">5-day forecast</span>
+        </div>
+        <div class="forecast-list" id="forecast-list"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Weather data provided by <a href="https://www.visualcrossing.com/" target="_blank" rel="noreferrer">Visual Crossing</a>.</p>
+      <p>Made for curious skies <span aria-hidden="true">✳</span></p>
+    </footer>
+  </main>
+</body>
+</html>
